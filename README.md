@@ -8,6 +8,23 @@ OrchiCyb Critical Twin is an experimental cybersecurity research platform explor
 ### Try the latest version: 
 **https://orchicyb-critical-twin.lovable.app**
 
+```mermaid
+flowchart TD
+    TI["Threat intelligence"] --> S["Attack scenario"]
+    ENV["Assets and dependencies"] --> S
+    S --> CY["Cyber state changes"]
+    CY --> PH["Physical process effects"]
+    PH --> IMP["Operational impact"]
+
+    CY --> OBS["Available observations"]
+    PH --> OBS
+    OBS --> D["Defensive decision"]
+    IMP --> D
+
+    D --> NEXT["Updated scenario outcome"]
+    NEXT -.->|Compare alternatives| S
+```
+
 ---
 
 # Core Features
@@ -150,6 +167,25 @@ Clicking an asset reveals:
 - Detection Opportunities
 - Recommended Mitigations
 
+
+```mermaid
+flowchart TD
+    TI["Threat intelligence"] --> S["Attack scenario"]
+    ENV["Assets and dependencies"] --> S
+    S --> CY["Cyber state changes"]
+    CY --> PH["Physical process effects"]
+    PH --> IMP["Operational impact"]
+
+    CY --> OBS["Available observations"]
+    PH --> OBS
+    OBS --> D["Defensive decision"]
+    IMP --> D
+
+    D --> NEXT["Updated scenario outcome"]
+    NEXT -.->|Compare alternatives| S
+```
+
+
 ---
 
 ## Attack Replay
@@ -159,15 +195,11 @@ Clicking an asset reveals:
 
 Replay attacks step by step.
 
-Inspect every stage of the intrusion.
-
-Pause.
-
-Rewind.
-
-Jump between attack phases.
-
-Observe how every attacker action propagates through the infrastructure.
+1. Inspect every stage of the intrusion.
+2. Pause.
+3. Rewind.
+4. Jump between attack phases.
+5. Observe how every attacker action propagates through the infrastructure.
 
 ---
 
