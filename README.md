@@ -170,19 +170,23 @@ Clicking an asset reveals:
 
 ```mermaid
 flowchart TD
-    TI["Threat intelligence"] --> S["Attack scenario"]
-    ENV["Assets and dependencies"] --> S
-    S --> CY["Cyber state changes"]
-    CY --> PH["Physical process effects"]
-    PH --> IMP["Operational impact"]
+    A["Industrial asset"] -->|Supports| P["Physical process"]
+    A -->|Communicates through| I["Interface or protocol"]
+    A -->|Runs| SW["Software and firmware"]
 
-    CY --> OBS["Available observations"]
-    PH --> OBS
-    OBS --> D["Defensive decision"]
-    IMP --> D
+    SW -->|May be affected by| V["Verified vulnerability"]
+    I -->|May enable| E["Exposure condition"]
 
-    D --> NEXT["Updated scenario outcome"]
-    NEXT -.->|Compare alternatives| S
+    V --> S["Candidate attack scenario"]
+    E --> S
+    T["Relevant ATT&CK technique"] -->|Describes behavior| S
+
+    S -->|May disrupt| P
+    P -->|Supports| B["Business service"]
+
+    S -->|May produce| O["Observable evidence"]
+    C["Security control"] -->|May constrain| S
+    SRC["Sources and assumptions"] -.->|Support assessment| S
 ```
 
 
